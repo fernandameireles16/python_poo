@@ -24,15 +24,17 @@ if __name__ == "__main__":
     nm_modelo = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
-
-    carro1 = Carro(nm_modelo, nm_marca, nm_cor, 0, False)
+    litros = float(input("Nivel no tanque: "))
+    cm = float(input("Consumo médio: "))
+    carro1 = Carro(nm_modelo, nm_marca, nm_cor, 0, False, litros, cm)
 
     print('Cadastre o segundo carro')
     nm_model = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
-
-    carro2 = Carro(nm_modelo, nm_marca, nm_cor, 0, False)
+    litros = float(input("Nivel no tanque: "))
+    cm = float(input('Consumo médio: '))
+    carro2 = Carro(nm_modelo, nm_marca, nm_cor, 0, False, litros, cm)
     '''
     Controlando dois carros até eles atingirem 600 Km
     '''
