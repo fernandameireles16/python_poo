@@ -1,11 +1,16 @@
 import pickle
 import traceback
+<<<<<<< HEAD
 import gerenciar_urna
+=======
+
+>>>>>>> origin/main
 from common import *
 
 FILE_ELEITORES = 'eleitores.pkl'
 FILE_CANDIDATOS = 'candidatos.pkl'
 
+<<<<<<< HEAD
 def menu():
     print("1-Novo Eleitor")
     print("2-Atualizar Eleitor")
@@ -18,6 +23,15 @@ def menu():
     op = int(input("Digite a opcao [1 a 8]? "))
     while op not in range(1, 9):
         op = int(input("Digite a opcao [1 a 8]? "))
+=======
+def menu_eleitor():
+    print("1-Novo Eleitor")
+    print("2-Atualizar Eleitor")
+    print("3-Sair")
+    op = int(input("Digite a opcao [1,2,3]? "))
+    while op not in (1, 2, 3):
+        op = int(input("Digite a opcao [1,2,3]? "))
+>>>>>>> origin/main
     return op
 
 def inserir_eleitor(eleitores):
@@ -29,8 +43,13 @@ def inserir_eleitor(eleitores):
     nome = input("Digite o nome: ")
     RG = input("Digite o RG: ")
     CPF = input("Digite o CPF: ")
+<<<<<<< HEAD
     secao = int(input("Digite a secao: "))
     zona = int(input("Digite a zona: "))
+=======
+    secao = input("Digite a secao: ")
+    zona = input("Digite a zona: ")
+>>>>>>> origin/main
 
     eleitor = Eleitor(nome, RG, CPF, titulo, secao, zona)
     eleitores[eleitor.get_titulo()] = eleitor
@@ -41,14 +60,55 @@ def inserir_eleitor(eleitores):
     print('Eleitor gravado com sucesso!')
     print(eleitor)
 
+<<<<<<< HEAD
+=======
+def menu_candidato():
+    print("1-Novo Candidato")
+    print("2-Listar Candidato")
+    print("3-Sair")
+    op = int(input("Digite a opcao [1,2,3]? "))
+    while op not in (1, 2, 3):
+        op = int(input("Digite a opcao [1,2,3]? "))
+    return op
+
+def inserir_candidato(candidatos):
+    numero = int(input("Digite o numero: "))
+
+    if numero in candidatos:
+        raise Exception("Número já existente!")
+
+    nome = input("Digite o nome: ")
+    RG = input("Digite o RG: ")
+    CPF = input("Digite o CPF: ")
+
+
+    candidato - Candidato(nome, RG, CPF, numero)
+    candidatos[numero] = candidato
+
+    with open(FILE_CANDIDATOS, 'wb') as arquivo:
+        pickle.dump(candidatos, arquivo)
+
+    print('Arquivo gravado com sucesso!')
+
+def Lista_candidatos(candidatos):
+    for c in candidatos.values():
+        print("Candidato numero: "str1(c_get_numero()))
+        print("----------------------------------------")
+        print(c)
+>>>>>>> origin/main
 def atualizar_eleitor(eleitores):
     titulo = int(input('Digite o titulo do eleitor: '))
 
     if titulo in eleitores:
         eleitor = eleitores[titulo]
         print(eleitor)
+<<<<<<< HEAD
         secao = int(input("Digite a nova secao: "))
         zona = int(input("Digite a nova zona: "))
+=======
+        secao = input("Digite a nova secao: ")
+        zona = input("Digite a nova zona: ")
+>>>>>>> origin/main
         eleitor.secao = secao
         eleitor.zona = zona
 
@@ -60,6 +120,7 @@ def atualizar_eleitor(eleitores):
     else:
         raise Exception('Titulo inexistente')
 
+<<<<<<< HEAD
 def inserir_candidato(candidatos):
     numero = int(input("Digite o número do candidato: "))
 
@@ -85,6 +146,11 @@ def listar_candidatos(candidatos):
 
 if __name__ == "__main__":
     eleitores = {} #dicionário a chave será o titulo
+=======
+if __name__ == "__main__":
+    eleitores = {} #dicionário a chave será o titulo
+    candidatos = {}
+>>>>>>> origin/main
     try:
         print("Carregando arquivo de eleitores ...")
 
@@ -94,6 +160,7 @@ if __name__ == "__main__":
         print(fnfe)
         print("Arquivo nao encontrado, nenhum eleitor carregado!")
 
+<<<<<<< HEAD
     candidatos = {}  # dicionário a chave será o titulo
     try:
         print("Carregando arquivo de candidatos ...")
@@ -108,12 +175,19 @@ if __name__ == "__main__":
     while opcao in range(1,9):
         try:
             opcao = menu()
+=======
+    opcao = 1
+    while opcao in (1,2,3):
+        try:
+            opcao = menu_eleitor()
+>>>>>>> origin/main
 
             if opcao == 1:
                 inserir_eleitor(eleitores)
             elif opcao == 2:
                 atualizar_eleitor(eleitores)
             elif opcao == 3:
+<<<<<<< HEAD
                 inserir_candidato(candidatos)
             elif opcao == 4:
                 listar_candidatos(candidatos)
@@ -130,3 +204,11 @@ if __name__ == "__main__":
         except Exception as e:
             #traceback.print_exc()
             print(e)
+=======
+                print("Saindo!")
+                break
+        except Exception as e:
+            #traceback.print_exc()
+            print(e)
+
+>>>>>>> origin/main
